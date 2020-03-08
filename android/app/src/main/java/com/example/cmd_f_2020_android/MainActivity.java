@@ -14,11 +14,18 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.cmd_f_2020_android.ui.main.SectionsPagerAdapter;
+import com.kwabenaberko.newsapilib.NewsApiClient;
+import com.kwabenaberko.newsapilib.models.request.SourcesRequest;
+import com.kwabenaberko.newsapilib.models.response.SourcesResponse;
+
+import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
@@ -35,5 +42,8 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
     }
+
+
 }
