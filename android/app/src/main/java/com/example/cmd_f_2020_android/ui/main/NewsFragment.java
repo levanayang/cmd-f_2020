@@ -74,7 +74,13 @@ public class NewsFragment extends Fragment {
                 new NewsApiClient.ArticlesResponseCallback() {
                     @Override
                     public void onSuccess(ArticleResponse response) {
-                        System.out.println(response.getArticles().get(0).getTitle());
+                        int count = Math.min(response.getArticles().size(), 10);
+                        for(int i = 0; (i < count); i++){
+                            System.out.println(response.getArticles().get(i).getTitle());
+                            System.out.println(response.getArticles().get(i).getDescription());
+                            System.out.println(response.getArticles().get(i).getUrl());
+                            System.out.println(response.getArticles().get(i).getUrlToImage());
+                        }
                     }
 
                     @Override
