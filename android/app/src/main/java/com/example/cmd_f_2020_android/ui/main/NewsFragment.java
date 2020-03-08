@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.ListFragment;
 
 import com.example.cmd_f_2020_android.R;
 import com.kwabenaberko.newsapilib.NewsApiClient;
@@ -60,35 +61,16 @@ public class NewsFragment extends Fragment {
 //        }
 //    }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        NewsApiClient newsApiClient = new NewsApiClient("9430a38cdfaa4e45a0325d6cab2ac282");
 
-        newsApiClient.getTopHeadlines(
-                new TopHeadlinesRequest.Builder()
-                        .q("covid")
-                        .language("en")
-                        .build(),
-                new NewsApiClient.ArticlesResponseCallback() {
-                    @Override
-                    public void onSuccess(ArticleResponse response) {
-                        int count = Math.min(response.getArticles().size(), 10);
-                        for(int i = 0; (i < count); i++){
-                            System.out.println(response.getArticles().get(i).getTitle());
-                            System.out.println(response.getArticles().get(i).getDescription());
-                            System.out.println(response.getArticles().get(i).getUrl());
-                            System.out.println(response.getArticles().get(i).getUrlToImage());
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Throwable throwable) {
-                        System.out.println(throwable.getMessage());
-                    }
-                }
-        );
         return inflater.inflate(R.layout.fragment_news, container, false);
     }
+
+
+
+
 }
